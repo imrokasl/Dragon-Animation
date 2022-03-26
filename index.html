@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline'; media-src https://cdn-imrokasl.netlify.app"
+    />
+    <meta
+      name="description"
+      content="I'm Rokas, I wish to make beutyful animations"
+    />
+    <title>Dragon Animation</title>
+    <link rel="stylesheet" href="CSS/normalize.css" />
+    <link rel="stylesheet" href="CSS/styles.css" />
+  </head>
+  <body class="dark">
+    <main>
+      <header>
+        <nav>
+          <ul id="topList">
+            <li class="dropDown1 transform">
+              <a href="#">Theme</a>
+              <ul class="dropDown">
+                <li class="dropDownItem">
+                  <a href="#" onclick="dark()" id="dark">Dark</a>
+                </li>
+                <li class="dropDownItem">
+                  <a href="#" onclick="light()" id="light">Light</a>
+                </li>
+              </ul>
+            </li>
+            <li class="transform"><a href="/">Home</a></li>
+            <li class="transform">
+              <a href="https://imrokasl.github.io/#aboutMe1">About me</a>
+            </li>
+            <li class="transform">
+              <a href="https://imrokasl.github.io/#Myprojects">My projects</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <div id="aboutMe"></div>
+      <video
+        width="700px"
+        controls
+        autoplay
+        loop
+        src="https://cdn-imrokasl.netlify.app/video/457978_final.mp4"
+      ></video>
+    </main>
+    <footer id="footer">
+      <p id="footerText1">Made by Rokas</p>
+      <p id="footerText2">Made with ❤ by Rokas :)</p>
+    </footer>
+    <script src="Javascript/addEventListener.js"></script>
+  </body>
+</html>

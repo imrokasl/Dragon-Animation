@@ -1,0 +1,285 @@
+@font-face {
+  font-family: "rubik";
+  src: url("/fonts/rubik/rubik-bold-webfont.woff2") format("woff2"),
+    url("/fonts/rubik/rubik-bold-webfont.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "rubik";
+  src: url("/fonts/rubik/rubik-regular-webfont.woff2") format("woff2"),
+    url("/fonts/rubik/rubik-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+HTML {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --color-primary: #2584ff;
+  --color-secondary: #609ec7;
+  --color-accent: #ff5329;
+  --border-rad: 3px;
+}
+
+body {
+  background: var(--background-color);
+  color: var(--color-text);
+  font-family: "rubik";
+  font-style: normal;
+}
+
+::selection {
+  background-color: var(--color-accent);
+}
+
+/* add height to fix footer*/
+main {
+  height: 1700px;
+}
+
+/* Theme start !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+.dark {
+  --color-text: #eee;
+  --border: 5px solid hsla(0, 0%, 100%, 0.2);
+  --border-shadow: 5px 5px 0 0 hsla(0, 0%, 100%, 0.2);
+  --background-color: #111;
+  --color-slide: black;
+  --filter-background: brightness(100%) opacity(0.03);
+}
+
+.light {
+  --color-text: #111;
+  --border: 5px solid hsla(0, 0%, 0%, 0.2);
+  --border-shadow: 5px 5px 0 0 hsla(0, 0%, 0%, 0.2);
+  --background-color: #d7d6eb;
+  --color-slide: hsla(0, 0%, 0%, 0.2);
+  --filter-background: brightness(40%) opacity(0.07);
+}
+
+/* Theme end !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+/* Main CSS end !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+.flex1 {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1500px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+
+/* Home start !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+#aboutMe::before {
+  background: url(/img/backgroud1.svg);
+  width: 100%;
+  height: 1650px;
+  filter: var(--filter-background);
+  content: "";
+  display: block;
+  position: absolute;
+  animation-name: pop;
+  animation-duration: 50s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  pointer-events: none;
+}
+
+.box1 {
+  height: 300px;
+  width: 300px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 15px;
+  text-align: center;
+}
+
+.box2 {
+  height: 300px;
+  width: 700px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-weight: bold;
+  font-size: 40px;
+  overflow: auto;
+}
+
+@keyframes pop {
+  0% {
+    background-position-y: 0;
+  }
+  50% {
+    background-position-y: 50%;
+  }
+  to {
+    background-position-y: 100%;
+  }
+}
+
+li {
+  text-decoration: none;
+  list-style-type: none;
+  padding: 15px;
+  font-weight: bold;
+  transition: transform 0.3s ease-out;
+}
+
+.transform:hover {
+  transform: translate(0, -3px);
+}
+
+#topList:hover {
+  background-position: left;
+}
+
+.box1:hover,
+.box2:hover {
+  background-position: left;
+  transform: translate(0, -10px);
+}
+
+ul,
+.box1,
+.box2,
+.textLeft {
+  background: linear-gradient(
+      to left,
+      rgba(0, 0, 0, 0) 50%,
+      var(--color-slide) 50%
+    )
+    right;
+  background-size: 200%;
+  transition: transform 0.5s ease-out, background-position 0.3s ease-out;
+  border: var(--border);
+  box-shadow: var(--border-shadow);
+  border-radius: var(--border-rad);
+  z-index: 1;
+}
+
+#topList {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border: var(--border);
+  box-shadow: var(--border-shadow);
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 0;
+  z-index: 2;
+  position: relative;
+}
+
+[href] {
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+[href]:hover {
+  color: var(--color-accent);
+}
+
+h2 {
+  margin: 0;
+}
+
+.box2 > div > img {
+  height: 130px;
+}
+
+.h2color {
+  color: var(--color-primary);
+}
+
+/* Home end !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+/* DropDown start !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+.dropDown {
+  position: absolute;
+  width: 300px;
+  visibility: hidden;
+  z-index: 2;
+  background: var(--color-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 3rem;
+  margin-top: 2rem;
+  padding: 0.5rem;
+  font-size: 25px;
+  border-radius: 25px;
+}
+
+.dropDown1:focus-within .dropDown {
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.dropDown1 {
+  z-index: 2;
+}
+
+.dropDownItem a {
+  padding-left: 10px;
+}
+
+.dropDownItem a::before {
+  content: "";
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+#dark::before {
+  background-color: black;
+  border: 2px solid white;
+}
+
+#light::before {
+  background-color: white;
+  border: 2px solid black;
+}
+
+/* DropDown end !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+/*footer  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+footer > p {
+  padding: 1em;
+  margin: unset;
+}
+
+footer {
+  transition: background-color 0.5s;
+  background-color: var(--color-primary);
+  text-align: center;
+  font-weight: bold;
+}
+
+#footerText2 {
+  display: none;
+  margin: auto;
+}
+/*footer end  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+/*video start  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+video {
+  z-index: 1;
+  position: relative;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  border-radius: var(--border-rad);
+}
+
+/*video end  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
